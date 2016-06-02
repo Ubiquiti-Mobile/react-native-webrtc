@@ -73,9 +73,10 @@ public class WebRTCModule extends ReactContextBaseJavaModule {
         mMediaStreamTracks = new SparseArray<MediaStreamTrack>();
         mDataChannels = new SparseArray<DataChannel>();
 
-        pcConstraints.mandatory.add(new MediaConstraints.KeyValuePair("OfferToReceiveAudio", "true"));
-        pcConstraints.mandatory.add(new MediaConstraints.KeyValuePair("OfferToReceiveVideo", "true"));
+        pcConstraints.mandatory.add(new MediaConstraints.KeyValuePair("OfferToReceiveAudio", "false"));
+        pcConstraints.mandatory.add(new MediaConstraints.KeyValuePair("OfferToReceiveVideo", "false"));
         pcConstraints.optional.add(new MediaConstraints.KeyValuePair("DtlsSrtpKeyAgreement", "true"));
+        pcConstraints.optional.add(new MediaConstraints.KeyValuePair("RtpDataChannels", "false"));
 
         PeerConnectionFactory.initializeAndroidGlobals(reactContext, true, true, true);
         mFactory = new PeerConnectionFactory();
