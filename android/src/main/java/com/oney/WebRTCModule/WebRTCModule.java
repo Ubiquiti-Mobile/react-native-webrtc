@@ -296,12 +296,7 @@ public class WebRTCModule extends ReactContextBaseJavaModule {
                     if (useVideo) {
                         String name = CameraEnumerationAndroid.getNameOfFrontFacingDevice();
 
-                        VideoCapturerAndroid v = VideoCapturerAndroid.create(name, new VideoCapturerAndroid.CameraErrorHandler() {
-                            @Override
-                            public void onCameraError(String s) {
-
-                            }
-                        });
+                        VideoCapturerAndroid v = VideoCapturerAndroid.create(name);
                         videoSource = mFactory.createVideoSource(v, videoConstraints);
                     }
                     break;
@@ -479,12 +474,7 @@ public class WebRTCModule extends ReactContextBaseJavaModule {
             name = CameraEnumerationAndroid.getNameOfFrontFacingDevice();
         }
 
-        return VideoCapturerAndroid.create(name, new VideoCapturerAndroid.CameraErrorHandler() {
-            @Override
-            public void onCameraError(String s) {
-
-            }
-        });
+        return VideoCapturerAndroid.create(name);
     }
     private MediaConstraints defaultConstraints() {
         MediaConstraints constraints = new MediaConstraints();
